@@ -22,6 +22,7 @@
  */
 package com.synopsys.integration.alert.issuetracker.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -102,7 +103,7 @@ public abstract class IssueCreatorTestAction {
                                              .findFirst()
                                              .filter(secondIssueKey -> !StringUtils.equals(secondIssueKey, initialIssueKey));
 
-                if (reopenError.isEmpty()) {
+                if (!reopenError.isPresent()) {
                     fromStatus = toStatus;
                     toStatus = "Resolve";
                     Optional<String> reResolveError = validateTransition(transitionValidator, initialIssueKey, resolveTransitionName, getDoneStatusFieldKey());
@@ -130,7 +131,9 @@ public abstract class IssueCreatorTestAction {
     private IssueTrackerResponse createAndSendMessage(IssueTrackerContext issueTrackerContext, IssueOperation operation, String messageId) throws IntegrationException {
         logger.debug("Sending {} test message...", operation.name());
         IssueTrackerRequest request = testIssueRequestCreator.createRequest(operation, messageId);
-        IssueTrackerResponse messageResult = this.issueTrackerService.sendRequests(issueTrackerContext, List.of(request));
+        List<IssueTrackerRequest> requests = new ArrayList<>(1);
+        requests.add(request);
+        IssueTrackerResponse messageResult = this.issueTrackerService.sendRequests(issueTrackerContext, requests);
         logger.debug("{} test message sent!", operation.name());
         return messageResult;
     }

@@ -22,6 +22,7 @@
  */
 package com.synopsys.integration.alert.issuetracker.exception;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class IssueTrackerFieldException extends IssueTrackerException {
@@ -54,11 +55,15 @@ public class IssueTrackerFieldException extends IssueTrackerException {
     }
 
     public static IssueTrackerFieldException singleFieldError(String fieldKey, String fieldError) {
-        return new IssueTrackerFieldException(Map.of(fieldKey, fieldError));
+        Map<String, String> map = new LinkedHashMap<>(1);
+        map.put(fieldKey, fieldError);
+        return new IssueTrackerFieldException(map);
     }
 
     public static IssueTrackerFieldException singleFieldError(String message, String fieldKey, String fieldError) {
-        return new IssueTrackerFieldException(message, Map.of(fieldKey, fieldError));
+        Map<String, String> map = new LinkedHashMap<>(1);
+        map.put(fieldKey, fieldError);
+        return new IssueTrackerFieldException(message, map);
     }
 
     public Map<String, String> getFieldErrors() {
