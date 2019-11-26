@@ -20,13 +20,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.message;
 
 import java.util.function.Predicate;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.synopsys.integration.alert.issuetracker.exception.IssueTrackerContentLengthException;
+import com.synopsys.integration.issuetracker.common.exception.IssueTrackerContentLengthException;
 
 public abstract class IssueContentLengthValidator {
     protected abstract int getTitleLength();

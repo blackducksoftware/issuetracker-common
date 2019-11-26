@@ -20,27 +20,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.exception;
+package com.synopsys.integration.issuetracker.common.service;
 
-public class IssueTrackerContentLengthException extends IssueTrackerException {
-    private static final long serialVersionUID = -796650409951066155L;
+import java.util.Optional;
 
-    public IssueTrackerContentLengthException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
+import com.synopsys.integration.exception.IntegrationException;
 
-    public IssueTrackerContentLengthException(String message, Throwable cause) {
-        super(message, cause);
-    }
+/**
+ * @param <T> A class that represents a transition.
+ */
+public interface TransitionValidator<T> {
+    boolean doesTransitionToExpectedStatusCategory(T transition, String expectedStatusCategoryKey) throws IntegrationException;
 
-    public IssueTrackerContentLengthException(String message) {
-        super(message);
-    }
+    Optional<T> retrieveIssueTransition(String issueKey, String transitionName) throws IntegrationException;
 
-    public IssueTrackerContentLengthException(Throwable cause) {
-        super(cause);
-    }
-
-    public IssueTrackerContentLengthException() {
-    }
 }

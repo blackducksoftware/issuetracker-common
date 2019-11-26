@@ -20,7 +20,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.message;
 
 import java.util.Collection;
 import java.util.LinkedList;

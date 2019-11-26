@@ -20,30 +20,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.message;
 
-import com.synopsys.integration.alert.issuetracker.IssueOperation;
+import java.io.Serializable;
+import java.util.Collection;
 
-public class IssueTrackerRequest {
-    private final IssueSearchProperties issueSearchProperties;
-    private final IssueOperation operation;
-    private final IssueContentModel requestContent;
+import com.synopsys.integration.util.Stringable;
 
-    public IssueTrackerRequest(IssueOperation operation, IssueSearchProperties issueSearchProperties, IssueContentModel requestContent) {
-        this.operation = operation;
-        this.issueSearchProperties = issueSearchProperties;
-        this.requestContent = requestContent;
+public class IssueTrackerResponse extends Stringable implements Serializable {
+    private String statusMessage;
+    private Collection<String> updatedIssueKeys;
+
+    public IssueTrackerResponse(String statusMessage, Collection<String> updatedIssueKeys) {
+        this.statusMessage = statusMessage;
+        this.updatedIssueKeys = updatedIssueKeys;
     }
 
-    public <T extends IssueSearchProperties> T getIssueSearchProperties() {
-        return (T) issueSearchProperties;
+    public String getStatusMessage() {
+        return statusMessage;
     }
 
-    public IssueOperation getOperation() {
-        return operation;
+    public Collection<String> getUpdatedIssueKeys() {
+        return updatedIssueKeys;
     }
 
-    public IssueContentModel getRequestContent() {
-        return requestContent;
-    }
 }

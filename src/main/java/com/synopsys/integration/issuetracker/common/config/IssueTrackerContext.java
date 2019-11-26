@@ -20,18 +20,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.config;
 
-import com.synopsys.integration.alert.issuetracker.IssueOperation;
+public class IssueTrackerContext<T extends IssueTrackerServiceConfig> {
+    private T issueTrackerConfig;
+    private IssueConfig issueConfig;
 
-public class IssueCreationRequest extends IssueTrackerRequest {
-    public static final IssueOperation OPERATION = IssueOperation.OPEN;
-
-    private IssueCreationRequest(IssueSearchProperties issueSearchProperties, IssueContentModel requestContent) {
-        super(OPERATION, issueSearchProperties, requestContent);
+    public IssueTrackerContext(T issueTrackerConfig, IssueConfig issueConfig) {
+        this.issueTrackerConfig = issueTrackerConfig;
+        this.issueConfig = issueConfig;
     }
 
-    public static final IssueCreationRequest of(IssueSearchProperties issueSearchProperties, IssueContentModel content) {
-        return new IssueCreationRequest(issueSearchProperties, content);
+    public T getIssueTrackerConfig() {
+        return issueTrackerConfig;
+    }
+
+    public IssueConfig getIssueConfig() {
+        return issueConfig;
     }
 }

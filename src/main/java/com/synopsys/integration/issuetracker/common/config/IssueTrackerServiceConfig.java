@@ -20,8 +20,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.config;
 
-public interface IssueSearchProperties {
-
+public interface IssueTrackerServiceConfig {
 }

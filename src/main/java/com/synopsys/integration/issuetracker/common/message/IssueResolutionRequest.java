@@ -20,9 +20,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.message;
 
-import com.synopsys.integration.alert.issuetracker.IssueOperation;
+import com.synopsys.integration.issuetracker.common.IssueOperation;
 
 public class IssueResolutionRequest extends IssueTrackerRequest {
     public static final IssueOperation OPERATION = IssueOperation.RESOLVE;

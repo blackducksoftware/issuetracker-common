@@ -20,16 +20,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.service;
+package com.synopsys.integration.issuetracker.common.service;
 
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.synopsys.integration.alert.issuetracker.message.IssueTrackerRequest;
-import com.synopsys.integration.alert.issuetracker.message.IssueTrackerResponse;
 import com.synopsys.integration.exception.IntegrationException;
+import com.synopsys.integration.issuetracker.common.config.IssueTrackerContext;
+import com.synopsys.integration.issuetracker.common.message.IssueTrackerRequest;
+import com.synopsys.integration.issuetracker.common.message.IssueTrackerResponse;
 
-public abstract class IssueTrackerService<T> {
+public abstract class IssueTrackerService<T extends IssueTrackerContext> {
     private Gson gson;
 
     public IssueTrackerService(Gson gson) {

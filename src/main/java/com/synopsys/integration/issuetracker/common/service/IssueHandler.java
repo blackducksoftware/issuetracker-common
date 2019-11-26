@@ -20,7 +20,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.service;
+package com.synopsys.integration.issuetracker.common.service;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -32,16 +32,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.synopsys.integration.alert.issuetracker.IssueOperation;
-import com.synopsys.integration.alert.issuetracker.config.IssueConfig;
-import com.synopsys.integration.alert.issuetracker.exception.IssueMissingTransitionException;
-import com.synopsys.integration.alert.issuetracker.exception.IssueTrackerException;
-import com.synopsys.integration.alert.issuetracker.message.IssueContentLengthValidator;
-import com.synopsys.integration.alert.issuetracker.message.IssueContentModel;
-import com.synopsys.integration.alert.issuetracker.message.IssueTrackerRequest;
-import com.synopsys.integration.alert.issuetracker.message.IssueTrackerResponse;
 import com.synopsys.integration.datastructure.SetMap;
 import com.synopsys.integration.exception.IntegrationException;
+import com.synopsys.integration.issuetracker.common.IssueOperation;
+import com.synopsys.integration.issuetracker.common.config.IssueConfig;
+import com.synopsys.integration.issuetracker.common.exception.IssueMissingTransitionException;
+import com.synopsys.integration.issuetracker.common.exception.IssueTrackerException;
+import com.synopsys.integration.issuetracker.common.message.IssueContentLengthValidator;
+import com.synopsys.integration.issuetracker.common.message.IssueContentModel;
+import com.synopsys.integration.issuetracker.common.message.IssueTrackerRequest;
+import com.synopsys.integration.issuetracker.common.message.IssueTrackerResponse;
 
 public abstract class IssueHandler<R> {
     private final Logger logger = LoggerFactory.getLogger(getClass());

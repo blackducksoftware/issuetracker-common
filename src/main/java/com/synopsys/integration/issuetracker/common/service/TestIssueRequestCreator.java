@@ -20,10 +20,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.service;
+package com.synopsys.integration.issuetracker.common.service;
 
-import com.synopsys.integration.alert.issuetracker.IssueOperation;
-import com.synopsys.integration.alert.issuetracker.message.IssueTrackerRequest;
+import com.synopsys.integration.issuetracker.common.IssueOperation;
+import com.synopsys.integration.issuetracker.common.message.IssueTrackerRequest;
 
 public interface TestIssueRequestCreator {
     // This method could create a creation request or a resolution request.

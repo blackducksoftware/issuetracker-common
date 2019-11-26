@@ -20,22 +20,24 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.config;
+package com.synopsys.integration.issuetracker.common.exception;
 
-public class IssueTrackerContext<T extends IssueTrackerServiceConfig> {
-    private T issueTrackerConfig;
-    private IssueConfig issueConfig;
+public class IssueMissingTransitionException extends IssueTrackerException {
+    private static final long serialVersionUID = 9152514378880170516L;
+    private final String issueKey;
+    private final String transition;
 
-    public IssueTrackerContext(T issueTrackerConfig, IssueConfig issueConfig) {
-        this.issueTrackerConfig = issueTrackerConfig;
-        this.issueConfig = issueConfig;
+    public IssueMissingTransitionException(String issueKey, String transition) {
+        this.issueKey = issueKey;
+        this.transition = transition;
     }
 
-    public T getIssueTrackerConfig() {
-        return issueTrackerConfig;
+    public String getIssueKey() {
+        return issueKey;
     }
 
-    public IssueConfig getIssueConfig() {
-        return issueConfig;
+    public String getTransition() {
+        return transition;
     }
+
 }

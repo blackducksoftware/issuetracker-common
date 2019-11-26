@@ -20,36 +20,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.message;
+package com.synopsys.integration.issuetracker.common.exception;
 
-import java.io.Serializable;
-import java.util.Collection;
+public class IssueTrackerContentLengthException extends IssueTrackerException {
+    private static final long serialVersionUID = -796650409951066155L;
 
-import com.synopsys.integration.util.Stringable;
-
-public class IssueTrackerResponse extends Stringable implements Serializable {
-    private String statusMessage;
-    private Collection<String> updatedIssueKeys;
-
-    public IssueTrackerResponse(String statusMessage, Collection<String> updatedIssueKeys) {
-        this.statusMessage = statusMessage;
-        this.updatedIssueKeys = updatedIssueKeys;
+    public IssueTrackerContentLengthException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    public String getStatusMessage() {
-        return statusMessage;
+    public IssueTrackerContentLengthException(String message, Throwable cause) {
+        super(message, cause);
     }
 
-    public void setStatusMessage(String statusMessage) {
-        this.statusMessage = statusMessage;
+    public IssueTrackerContentLengthException(String message) {
+        super(message);
     }
 
-    public Collection<String> getUpdatedIssueKeys() {
-        return updatedIssueKeys;
+    public IssueTrackerContentLengthException(Throwable cause) {
+        super(cause);
     }
 
-    public void setUpdatedIssueKeys(Collection<String> updatedIssueKeys) {
-        this.updatedIssueKeys = updatedIssueKeys;
+    public IssueTrackerContentLengthException() {
     }
-
 }

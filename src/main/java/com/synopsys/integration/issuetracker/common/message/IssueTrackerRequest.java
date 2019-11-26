@@ -20,29 +20,30 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.synopsys.integration.alert.issuetracker.exception;
+package com.synopsys.integration.issuetracker.common.message;
 
-import com.synopsys.integration.exception.IntegrationException;
+import com.synopsys.integration.issuetracker.common.IssueOperation;
 
-public class IssueTrackerException extends IntegrationException {
-    private static final long serialVersionUID = -156290045811635478L;
+public class IssueTrackerRequest {
+    private final IssueSearchProperties issueSearchProperties;
+    private final IssueOperation operation;
+    private final IssueContentModel requestContent;
 
-    public IssueTrackerException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public IssueTrackerRequest(IssueOperation operation, IssueSearchProperties issueSearchProperties, IssueContentModel requestContent) {
+        this.operation = operation;
+        this.issueSearchProperties = issueSearchProperties;
+        this.requestContent = requestContent;
     }
 
-    public IssueTrackerException(String message, Throwable cause) {
-        super(message, cause);
+    public <T extends IssueSearchProperties> T getIssueSearchProperties() {
+        return (T) issueSearchProperties;
     }
 
-    public IssueTrackerException(String message) {
-        super(message);
+    public IssueOperation getOperation() {
+        return operation;
     }
 
-    public IssueTrackerException(Throwable cause) {
-        super(cause);
-    }
-
-    public IssueTrackerException() {
+    public IssueContentModel getRequestContent() {
+        return requestContent;
     }
 }
