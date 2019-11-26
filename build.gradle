@@ -9,13 +9,13 @@ project.ext.moduleName = 'com.synopsys.integration.issuetracker-common'
 project.ext.javaUseAutoModuleName = 'true'
 
 group = 'com.synopsys.integration'
-version = '0.0.1'
+version = '0.0.2-SNAPSHOT'
 description = 'A library providing a framework to be able to interact with issue tracking systems in order to create and resolve issues.'
 
 apply plugin: 'com.blackducksoftware.integration.library'
 
-nexusStaging { 
-    packageGroup = 'com.synopsys' 
+nexusStaging {
+    packageGroup = 'com.synopsys'
     stagingProfileId = '4af8bea8300633'
 }
 
