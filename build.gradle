@@ -14,7 +14,10 @@ description = 'A library providing a framework to be able to interact with issue
 
 apply plugin: 'com.blackducksoftware.integration.library'
 
-nexusStaging { packageGroup = 'com.synopsys' }
+nexusStaging { 
+    packageGroup = 'com.synopsys' 
+    stagingProfileId = '4af8bea8300633'
+}
 
 dependencies {
     api 'com.blackducksoftware.integration:blackduck-common:44.4.6'
