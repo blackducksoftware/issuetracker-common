@@ -1,7 +1,7 @@
 /**
  * issuetracker-common
  *
- * Copyright (c) 2019 Synopsys, Inc.
+ * Copyright (c) 2020 Synopsys, Inc.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -81,9 +82,10 @@ public abstract class IssueHandler<R> {
                         .map(this::getIssueKey)
                         .forEach(issueKeys::add);
                 } else if (IssueOperation.OPEN == operation || IssueOperation.UPDATE == operation) {
-                    R issueModel = createIssue(issueConfig, request);
-                    String issueKey = getIssueKey(issueModel);
-                    issueKeys.add(issueKey);
+                    Optional<R> issueModel = createIssue(issueConfig, request);
+                    issueModel
+                        .map(this::getIssueKey)
+                        .ifPresent(issueKeys::add);
                 } else {
                     logger.warn("Expected to find an existing issue, but none existed.");
                 }
@@ -105,7 +107,7 @@ public abstract class IssueHandler<R> {
         return issueKeys;
     }
 
-    protected abstract R createIssue(IssueConfig issueConfig, IssueTrackerRequest request) throws IntegrationException;
+    protected abstract Optional<R> createIssue(IssueConfig issueConfig, IssueTrackerRequest request) throws IntegrationException;
 
     protected abstract List<R> retrieveExistingIssues(String projectSearchIdentifier, IssueTrackerRequest request) throws IntegrationException;
 
