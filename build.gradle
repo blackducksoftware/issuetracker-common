@@ -20,5 +20,5 @@ nexusStaging {
 }
 
 dependencies {
-    api 'com.blackducksoftware.integration:blackduck-common:44.4.6'
+    api 'com.synopsys.integration:blackduck-common:45.1.1'
 }
