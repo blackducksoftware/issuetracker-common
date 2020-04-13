@@ -30,7 +30,7 @@ public class IssueConfig {
     private String projectId;
     private String issueCreator;
     private String issueType;
-    private Boolean commentOnIssues;
+    private boolean commentOnIssues;
     private String resolveTransition;
     private String openTransition;
 
